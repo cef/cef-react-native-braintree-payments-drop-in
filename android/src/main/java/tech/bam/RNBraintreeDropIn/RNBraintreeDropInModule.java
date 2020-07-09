@@ -58,7 +58,7 @@ public class RNBraintreeDropInModule extends ReactContextBaseJavaModule {
 
       dropInRequest
       .amount(String.valueOf(threeDSecureOptions.getDouble("amount")))
-      .disbaleCard()
+      .disableCard()
       .requestThreeDSecureVerification(true);
     }
 
