@@ -1,18 +1,18 @@
-# react-native-braintree-payments-drop-in
+# cef-react-native-braintree-payments-drop-in
 
 > React Native integration of Braintree Drop-in
 
 ## Getting started
 
 ```bash
-yarn add react-native-braintree-payments-drop-in
+yarn add cef-react-native-braintree-payments-drop-in
 ```
 
 ### Mostly automatic installation
 
 ```bash
 # Run this only if you are on RN < 0.60
-react-native link react-native-braintree-payments-drop-in
+react-native link cef-react-native-braintree-payments-drop-in
 ```
 
 #### iOS specific
@@ -101,7 +101,7 @@ In your `AppDelegate.m`:
     if ([url.scheme localizedCaseInsensitiveCompare:self.paymentsURLScheme] == NSOrderedSame) {
         return [BTAppSwitch handleOpenURL:url options:options];
     }
-    
+
     return [RCTLinkingManager application:application openURL:url options:options];
 }
 
@@ -115,7 +115,6 @@ In your `AppDelegate.m`:
 
 Setup [browser switch](https://developers.braintreepayments.com/guides/client-sdk/setup/android/v2#browser-switch-setup).
 
-
 ## Usage
 
 For the API, see the [Flow typings](./index.js.flow).
@@ -123,39 +122,39 @@ For the API, see the [Flow typings](./index.js.flow).
 ### Basic
 
 ```javascript
-import BraintreeDropIn from 'react-native-braintree-payments-drop-in';
+import BraintreeDropIn from "cef-react-native-braintree-payments-drop-in";
 
 BraintreeDropIn.show({
-  clientToken: 'token',
+  clientToken: "token",
 })
-.then(result => console.log(result))
-.catch((error) => {
-  if (error.code === 'USER_CANCELLATION') {
-    // update your UI to handle cancellation
-  } else {
-    // update your UI to handle other errors
-  }
-});
+  .then((result) => console.log(result))
+  .catch((error) => {
+    if (error.code === "USER_CANCELLATION") {
+      // update your UI to handle cancellation
+    } else {
+      // update your UI to handle other errors
+    }
+  });
 ```
 
 ### 3D Secure
 
 ```javascript
-import BraintreeDropIn from 'react-native-braintree-payments-drop-in';
+import BraintreeDropIn from "cef-react-native-braintree-payments-drop-in";
 
 BraintreeDropIn.show({
-  clientToken: 'token',
+  clientToken: "token",
   threeDSecure: {
     amount: 1.0,
   },
 })
-.then(result => console.log(result))
-.catch((error) => {
-  if (error.code === 'USER_CANCELLATION') {
-    // update your UI to handle cancellation
-  } else {
-    // update your UI to handle other errors
-    // for 3D secure, there are two other specific error codes: 3DSECURE_NOT_ABLE_TO_SHIFT_LIABILITY and 3DSECURE_LIABILITY_NOT_SHIFTED
-  }
-});
+  .then((result) => console.log(result))
+  .catch((error) => {
+    if (error.code === "USER_CANCELLATION") {
+      // update your UI to handle cancellation
+    } else {
+      // update your UI to handle other errors
+      // for 3D secure, there are two other specific error codes: 3DSECURE_NOT_ABLE_TO_SHIFT_LIABILITY and 3DSECURE_LIABILITY_NOT_SHIFTED
+    }
+  });
 ```
