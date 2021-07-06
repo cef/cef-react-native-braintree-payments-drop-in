@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:cefonline/cef-react-native-braintree-payments-drop-in.git#gradle-update"
+    "url": "git@github.com:cefonline/cef-react-native-braintree-payments-drop-in.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
