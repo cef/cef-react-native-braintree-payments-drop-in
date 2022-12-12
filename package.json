@@ -1,6 +1,6 @@
 {
   "name": "cef-react-native-braintree-payments-drop-in",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "React Native integration of Braintree Drop-in",
   "main": "index.js",
   "repository": {
