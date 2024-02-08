@@ -32,7 +32,11 @@ repositories {
 }
 
 dependencies {
+<<<<<<< HEAD
     implementation 'com.braintreepayments.api:drop-in:6.11.0+'
+=======
+    implementation 'com.braintreepayments.api:drop-in:5.4.0+'
+>>>>>>> origin/master
     implementation 'com.facebook.react:react-native:+'
 }
 
