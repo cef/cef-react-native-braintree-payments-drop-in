@@ -1,4 +1,5 @@
 #import "RNBraintreeDropIn.h"
+#import <BraintreeDropIn/BraintreeDropIn.h>
 
 @implementation RNBraintreeDropIn
 
@@ -28,8 +29,8 @@ RCT_REMAP_METHOD(show,
             return;
         }
 
-        request.threeDSecureVerification = YES;
-        request.amount = [threeDSecureAmount stringValue];
+        request.threeDSecureRequest = [[BTThreeDSecureRequest alloc] init];
+        request.threeDSecureRequest.amount = [threeDSecureAmount stringValue];
     }
 
     BTDropInController *dropIn = [[BTDropInController alloc] initWithAuthorization:clientToken request:request handler:^(BTDropInController * _Nonnull controller, BTDropInResult * _Nullable result, NSError * _Nullable error) {
@@ -37,7 +38,7 @@ RCT_REMAP_METHOD(show,
 
             if (error != nil) {
                 reject(error.localizedDescription, error.localizedDescription, error);
-            } else if (result.cancelled) {
+            } else if (result.canceled) {
                 reject(@"USER_CANCELLATION", @"The user cancelled", nil);
             } else {
                 if (threeDSecureOptions && [result.paymentMethod isKindOfClass:[BTCardNonce class]]) {
